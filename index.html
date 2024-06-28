@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Weather Website</title>
+    <meta content=" A web design for RealTime Weather Website page using HTML, CSS and javaScript."
+        name="description" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- ===== Font Awesome Icon Library ===== -->
+    <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
+
+    <!-- Favicons -->
+    <link href="assets/img/LOGO last -06-06-06.jpg" rel="icon" />
+    <link href="assets/img/LOGO last -06-06-06.jpg" />
+
+    <!-- bootstrap CSS Files -->
+    <link href="assets/bootstrap/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="loading loading-end " id="preloader">
+        <div class="load-circle"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+
+    <div class="d-flex h-100">
+        <div class="containerr">
+            <div class="weather__header">
+                <h1>Search for a city</h1>
+
+                <div class="weather__search">
+                    <input type="text" placeholder="Search for a city..." class="weather__searchform"
+                        id="weather__searchform">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <button class="submitLocation btn searchWeather" id="searchWeather"><i
+                            class=" fa-solid fa-magnifying-glass" onclick="searchWeatherr()"></i></button>
+                </div>
+                <div class="weather__units">
+                    <button class="tempItem" onclick="changeToC()"><span class="weather_unit_celsius"
+                            id="weather_unit_celsius">°C</span></button>
+                    <button class="tempItem" onclick="changeToF()"> <span class="weather_unit_farenheit"
+                            id="weather_unit_farenheit">°F</span></button>
+                </div>
+                <h1 id="city"></h1>
+
+            </div>
+
+            <div id="slider" class="carousel slide">
+                <div class="carousel-indicators ">
+                    <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="weatherInfo">
+                            <div class="weather__body">
+                                <div class="weather__datetime" id="weather__datetime">
+                                </div>
+                                <div class="weather__status" id="weather__status"></div>
+                                <div class="weather__icon" id="weather__icon">
+                                </div>
+                                <p class="weather__temperature" id="weather__temperature">
+                                </p>
+                                <div class="weather__minmax" id="weather__minmax">
+
+                                </div>
+                            </div>
+
+                            <div class="weather__info">
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <div>
+                                        <p>Humidity</p>
+                                        <p class="weather__humidity" id="weather__humidity"></p>
+                                    </div>
+                                </div>
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <div>
+                                        <p>Wind</p>
+                                        <p class="weather__wind" id="weather__wind"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="Next__weatherInfo">
+                            <div class="weather__body">
+                                <div class="weather__datetime" id="Next__weather__datetime">
+                                </div>
+                                <div class="weather__status" id="Next__weather__status"></div>
+                                <div class="weather__icon" id="Next__weather__icon">
+                                </div>
+                                <p class="weather__temperature" id="Next__weather__temperature">
+                                </p>
+                                <div class="weather__minmax" id="Next__weather__minmax">
+                                    <p>Min: </p>
+                                    <p>Max: </p>
+                                </div>
+                            </div>
+
+                            <div class="weather__info" id="Next__weather__info">
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <div>
+                                        <p>Humidity</p>
+                                        <p class="Next__weather__humidity" id="Next__weather__humidity"></p>
+                                    </div>
+                                </div>
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <div>
+                                        <p>Wind</p>
+                                        <p class="Next__weather__wind" id="Next__weather__wind"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="After__Next__weatherInfo">
+                            <div class="weather__body">
+                                <div class="weather__datetime" id="After__Next__weather__datetime">
+                                </div>
+                                <div class="weather__status" id="After__Next__weather__status"></div>
+                                <div class="weather__icon" id="After__Next__weather__icon">
+                                </div>
+                                <p class="weather__temperature" id="After__Next__weather__temperature">
+                                </p>
+                                <div class="weather__minmax" id="After__Next__weather__minmax">
+                                    <p>Min: </p>
+                                    <p>Max: </p>
+                                </div>
+                            </div>
+
+                            <div class="weather__info" id="After__Next__weather__info">
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <div>
+                                        <p>Humidity</p>
+                                        <p class="After__Next__weather__humidity" id="After__Next__weather__humidity">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="weather__card">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <div>
+                                        <p>Wind</p>
+                                        <p class="After__Next__weather__wind" id="After__Next__weather__wind"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-buttons d-flex justify-content-center align-items-center">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="assets/bootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+
+</body>
+
+
+</html>
